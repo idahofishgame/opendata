@@ -1,0 +1,32 @@
+@import url("https://idfg.idaho.gov/sites/all/themes/bootstrap/css/overrides.css");
+@import url("https://idfg.idaho.gov/sites/all/themes/bison/css/state-idfg.css");
+
+/* AGOL Overrides */
+#title-bar-region, #map-bar-region, #open-data { background-color: #fff; box-shadow: none; margin: 0 auto; }
+#slide-region .container { background-color: #fff; }
+body {background-color: #3F4533;}
+#header a { color: #fff; }
+#header .navbar-nav a { color: #414634; text-transform: none; }
+#slide-region, #header, #footer, .home #page-content { background-color: #3F4533; }
+#home-link-region, #footer { float: none; margin-top: 0; padding-left: 0; padding-right: 0;}
+#header { box-shadow: none; }
+#header .container .row .col-xs-12 { padding-left: 0; padding-right: 0; }
+#show-banner-region #nav-back { left: -17px; }
+#show-banner-region .map-bar-title { font-family: "Roboto","Helvetica Neue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif; font-weight: 300; }
+.inner-header li { margin-right: inherit; }
+#idfg-site-search input[type="text"] { font-size: 14px; }
+@media (min-width:768px){
+  #title-bar-region, #map-bar-region{
+    width:750px
+  }
+}
+@media (min-width:992px){
+  #title-bar-region, #map-bar-region{
+    width:970px
+  }
+}
+@media (min-width:1200px){
+  #title-bar-region, #map-bar-region{
+    width:1170px
+  }
+}
