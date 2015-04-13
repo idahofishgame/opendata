@@ -15,6 +15,7 @@ body {background-color: #3F4533;}
 #show-banner-region .map-bar-title { font-family: "Roboto","Helvetica Neue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif; font-weight: 300; }
 .inner-header li { margin-right: inherit; }
 #idfg-site-search input[type="text"] { font-size: 14px; }
+.inner-header li { display: inherit; }
 @media (min-width:768px){
   #title-bar-region, #map-bar-region{
     width:750px
