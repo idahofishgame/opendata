@@ -1,5 +1,5 @@
 @import url("https://idfg.idaho.gov/sites/all/themes/bootstrap/css/overrides.css");
-@import url("https://idfg.idaho.gov/sites/all/themes/bison/css/state-idfg.css");
+@import url("https://idfg.idaho.gov/sites/all/themes/bison/css/bison.css");
 
 /* AGOL Overrides */
 #title-bar-region, #map-bar-region, #open-data { background-color: #fff; box-shadow: none; margin: 0 auto; }
