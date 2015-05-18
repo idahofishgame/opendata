@@ -16,9 +16,20 @@ body {background-color: #3F4533;}
 .inner-header li { margin-right: inherit; }
 #idfg-site-search input[type="text"] { font-size: 14px; }
 .inner-header li { display: inherit; }
+.navbar-right { float: right !important; margin-right: 0; }
+#header .navbar-nav a:hover { color: #fff; }
+#activities-region { position: static; }
+@media (max-width:992px){
+  .region-branding, .utilities { display: none; }
+  #activities-region { position: absolute; }
+  #navbar .logo img {
+    height: 44px;
+    margin-left: 10px;
+  }
+}
 @media (min-width:768px){
   #title-bar-region, #map-bar-region{
-    width:750px
+    width:750px;
   }
 }
 @media (min-width:992px){
