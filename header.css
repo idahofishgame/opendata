@@ -19,6 +19,9 @@ body {background-color: #3F4533;}
 .navbar-right { float: right !important; margin-right: 0; }
 #header .navbar-nav a:hover { color: #fff; }
 #activities-region { position: static; }
+.footer a { color: #7D7D7D; }
+footer, .footer { color: #A7A7A7; }
+.footer { height: auto; }
 @media (max-width:992px){
   .region-branding, .utilities { display: none; }
   #activities-region { position: absolute; }
@@ -35,6 +38,9 @@ body {background-color: #3F4533;}
 @media (min-width:992px){
   #title-bar-region, #map-bar-region{
     width:970px
+  }
+  #header .navbar-nav a:hover {
+    color: #414634;
   }
 }
 @media (min-width:1200px){
