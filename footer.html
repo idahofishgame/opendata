@@ -83,8 +83,8 @@
   <h5><a href="http://data.idfggis.opendata.arcgis.com" title="Maps">Maps</a></h5>
 <ul class="nav">
 <li><a href="http://data.idfggis.opendata.arcgis.com/datasets" title="Geospatial Data">Geospatial Open Data Portal</a></li>
-<li><a href="http://www.arcgis.com/home/group.html?owner=fishgame1&amp;title=IDFG%20Static%20Maps%20-%20PDF%20%26%20PNG" title="Download Static Maps">Static Maps - PDF &amp; PNG</a></li>
-<li><a href="http://www.arcgis.com/home/group.html?owner=fishgame1&amp;title=IDFG%20Applications" title="Map Apps">Map Applications</a></li>
+<li><a href="http://www.arcgis.com/home/group.html?owner=idahofishandgame&title=IDFG%20Static%20Maps%20-%20PDF%20%26%20PNG" title="Download Static Maps">Static Maps - PDF &amp; PNG</a></li>
+<li><a href="http://www.arcgis.com/home/group.html?owner=idahofishandgame&title=IDFG%20Applications" title="Map Apps">Map Applications</a></li>
 </ul>
 </section>
   </div>
@@ -131,4 +131,76 @@
   </div>
 </div>
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-<script src="https://idfg.idaho.gov/sites/all/themes/bison/js/login-menu.js"></script>
+<script>
+/**
+ * Loads dynamic login and menu information.  For a live example of
+ * this in use visit http://fishandgame.idaho.gov/ifwis/style.
+ */
+$(document).ready(function () {
+  getMainMenu();
+});
+
+// Loads the main menu from IDFG API endpoint
+function getMainMenu() {
+  // API request for the menu
+  $.ajax({
+    cache: false,
+    crossDomain: true,
+    dataType: 'jsonp',
+    jsonpCallback: 'jQuery11120031282627722248435_1439335233466',
+    success: function (data, requestStatus) {
+      if (requestStatus === 'success') {
+        $('#block-idfg-components-menu').replaceWith(data);
+        getUser();
+        updateLoginLinks();
+      }
+    },
+    type: 'GET',
+    url: 'https://fishandgame.idaho.gov/ifwis/rest/services/web/site/menu/1.jsonp'
+  });
+}
+
+// add a return URL to the login URL if not present for post-login redirect
+function updateLoginLinks() {
+  var loginElements = $('.accounts-login-link a');
+  for (var i = 0; i < loginElements.length; i++) {
+    if ($(loginElements[i]).attr('href').indexOf('?returnurl=') < 0) {
+      $(loginElements[i]).attr('href', $(loginElements[i]).attr('href') + '?returnurl=' + window.location.href);
+    }
+  }
+}
+
+// Loads the current user from IDFG API endpoint
+function getUser() {
+  // API request for the current user
+  $.ajax({
+    cache: false,
+    crossDomain: true,
+    dataType: 'jsonp',
+    success: function (data, requestStatus) {
+      if (requestStatus === 'success') {
+        if (data.user) {
+          updateLoginText(data.user);
+        } else {
+          updateLoginText("Login");
+        }
+      }
+    },
+    type: 'GET',
+    url: 'https://idfg.idaho.gov/accounts/user/state'
+  });
+}
+
+// Convenience function which animates the login text field to a new value, if not already set to that value
+function updateLoginText(newText) {
+  var loginElements = $('.accounts-login-link');
+  for (var i = 0; i < loginElements.length; i++) {
+    if (loginElements[i].textContent.indexOf(newText) < 0) {
+      $(loginElements[i]).fadeOut(400, function () {
+        $(this).find('a .link-text').text(newText);
+        $(this).fadeIn(400);
+      });
+    }
+  }
+}
+</script>
