@@ -1,5 +1,4 @@
-@import url("https://idfg.idaho.gov/sites/all/themes/bootstrap/css/overrides.css");
-@import url("https://idfg.idaho.gov/sites/all/themes/bison/css/bison.css");
+@import url("https://idfg.idaho.gov/sites/all/themes/bison/2.1/css/bison.css");
 
 /* AGOL Overrides */
 #title-bar-region, #map-bar-region, #open-data { background-color: #fff; box-shadow: none; margin: 0 auto; }
@@ -24,8 +23,9 @@ footer, .footer { color: #A7A7A7; }
 ul li.active { background-color: transparent; }
 .inner-header li { text-transform: none; }
 #navbar-login .link-text { margin-left: 4px; margin-right: 15px; }
+#header .utilities a { color: #bbb; }
+#header .navbar-nav a:hover { color: #414634; }
 @media (max-width:992px){
-  .region-branding, .utilities { display: none; }
   #navbar .logo img {
     height: 44px;
     margin-left: 10px;
